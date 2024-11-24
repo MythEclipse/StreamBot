@@ -10,7 +10,7 @@ import { getVideoParams, ffmpegScreenshot } from "./utils/ffmpeg.js";
 import PCancelable from "p-cancelable";
 
 const streamer = new Streamer(new Client());
-let command: PCancelable<string>;
+let command: any;
 
 const streamOpts: StreamOptions = {
     width: config.width,
