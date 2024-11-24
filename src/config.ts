@@ -10,6 +10,7 @@ export default {
     guildId: process.env.GUILD_ID ? process.env.GUILD_ID : '',
     cmdChannelId: process.env.COMMAND_CHANNEL_ID ? process.env.COMMAND_CHANNEL_ID : '',
     videoChannelId: process.env.VIDEO_CHANNEL_ID ? process.env.VIDEO_CHANNEL_ID : '',
+    ownerUserId: process.env.OWNER_USER_ID ? process.env.OWNER_USER_ID : '',
 
     // General options
     videosDir: process.env.VIDEOS_DIR ? process.env.VIDEOS_DIR : './videos',

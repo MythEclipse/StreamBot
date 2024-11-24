@@ -134,14 +134,12 @@ streamer.client.on('voiceStateUpdate', (oldState, newState) => {
 })
 
 streamer.client.on('messageCreate', async (message) => {
-    if (
-        message.author.bot || 
-        message.author.id === streamer.client.user?.id || 
-        !config.cmdChannelId.includes(message.channel.id.toString()) || 
-        !message.content.startsWith(config.prefix!)
-    ) return; // Ignore bots, self, non-command channels, and non-commands
-
-    const args = message.content.slice(config.prefix!.length).trim().split(/ +/); // Split command and arguments
+    if (message.author.bot) return; // ignore bots
+    if (message.author.id === streamer.client.user?.id) return; // ignore self
+    if (config.ownerUserId && message.author.id !== config.ownerUserId) return; // ignore non owner
+    if (!config.cmdChannelId.includes(message.channel.id.toString())) return; // ignore non-command channels
+    if (!message.content.startsWith(config.prefix!)) return; // ignore non-commands
+    const args = message.content.slice(config.prefix!.length).trim().split(/ +/); // split command and arguments
 
     if (args.length === 0) return; // No arguments provided
 
