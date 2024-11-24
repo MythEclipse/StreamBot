@@ -10,7 +10,7 @@ import { getVideoParams, ffmpegScreenshot } from "./utils/ffmpeg.js";
 import PCancelable from "p-cancelable";
 
 const streamer = new Streamer(new Client());
-let command: any;
+let command: PCancelable<string> | null = null;
 
 const streamOpts: StreamOptions = {
     width: config.width,
@@ -487,8 +487,7 @@ async function playVideo(video: string, udpConn: MediaUdp) {
     udpConn.mediaConnection.setVideoStatus(true);
 
     try {
-        const videoStream = await streamLivestreamVideo(video, udpConn);
-        videoStream;
+        command = streamLivestreamVideo(video, udpConn) as PCancelable<string>;
         const res = await command;
         console.log("Finished playing video " + res);
         // Check: if tmpVideo exists, delete it
