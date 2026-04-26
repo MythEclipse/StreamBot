@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, type Router as ExpressRouter } from 'express';
 import fs from 'fs';
 import path from 'path';
 import ffmpeg from 'fluent-ffmpeg';
@@ -7,7 +7,7 @@ import logger from '../../utils/logger.js';
 import { ffmpegScreenshot } from '../../utils/ffmpeg.js';
 import { stringify } from '../utils/helpers.js';
 
-const router = Router();
+const router: ExpressRouter = Router();
 
 // Preview route
 router.get("/preview/:file", (req, res) => {

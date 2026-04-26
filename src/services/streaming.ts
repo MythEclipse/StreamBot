@@ -183,9 +183,7 @@ export class StreamingService {
 		this.streamStatus.playing = true;
 		this.streamStatus.channelInfo = { guildId, channelId, cmdChannelId: config.cmdChannelId! };
 
-		if (title) {
-			this.streamer.client.user?.setActivity(DiscordUtils.status_watch(title));
-		}
+		// No activity status is set for the bot.
 
 		// Wait for voice connection to be fully ready
 		await new Promise(resolve => setTimeout(resolve, 2000));
@@ -414,7 +412,6 @@ export class StreamingService {
 				this.streamStatus.joinsucc = false;
 			}
 
-			this.streamer.client.user?.setActivity(DiscordUtils.status_idle());
 
 			// Reset all status flags
 			this.streamStatus.playing = false;

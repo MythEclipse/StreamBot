@@ -42,7 +42,8 @@
 
 ## 📋 Requirements
 
-- **[Bun](https://bun.sh/) v1.1.39+** (recommended) or **[Node.js](https://nodejs.org/) v21+**
+- **[Node.js](https://nodejs.org/) v21+** (recommended)
+- **[Bun](https://bun.sh/)** may not install native dependencies correctly for this project.
 - **[FFmpeg](https://www.ffmpeg.org/)** (the bot will attempt to install it automatically if missing, but manual installation is recommended)
 - **[yt-dlp](https://github.com/yt-dlp/yt-dlp)** (automatically downloaded and updated by the bot)
 
@@ -63,15 +64,12 @@ cd StreamBot
 
 2. **Install dependencies:**
 
-With Bun (recommended):
-```bash
-bun install
-```
-
-With npm:
+With npm (recommended):
 ```bash
 npm install
 ```
+
+> ⚠️ Bun may not build native dependencies required by this project, so npm is the safer choice.
 
 3. **Configure environment:**
    - Copy `.env.example` to `.env`
@@ -84,16 +82,13 @@ npm install
 
 ### 🚀 Starting the Bot
 
-**With Bun (recommended):**
-```bash
-bun run start
-```
-
-**With Node.js:**
+**With Node.js (recommended):**
 ```bash
 npm run build
 npm run start:node
 ```
+
+> ⚠️ If you use Bun, native dependencies may fail to install or load.
 
 **With web interface enabled:**
 Set `SERVER_ENABLED=true` in your `.env` file. The web interface runs alongside the bot automatically.

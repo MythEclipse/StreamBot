@@ -5,9 +5,9 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "start": "bun src/index.ts",
+    "start": "npm run build && npm run start:node",
     "start:node": "node dist/index.js",
-    "server": "bun src/server/index.ts",
+    "server": "npm run build && npm run server:node",
     "server:node": "node dist/server/index.js",
     "build": "tsc",
     "watch": "tsc -w",

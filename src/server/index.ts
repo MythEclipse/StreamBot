@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Express } from "express";
 import session from "express-session";
 import expressLayouts from "express-ejs-layouts";
 import path from "path";
@@ -16,7 +16,7 @@ import dashboardRoutes from "./routes/dashboard.js";
 import uploadRoutes from "./routes/upload.js";
 import previewRoutes from "./routes/preview.js";
 
-const app = express();
+const app: Express = express();
 
 // Configure EJS templating engine
 app.set('view engine', 'ejs');

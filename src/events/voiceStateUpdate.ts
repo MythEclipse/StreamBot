@@ -20,7 +20,6 @@ export async function handleVoiceStateUpdate(
 				channelId: "",
 				cmdChannelId: ""
 			}
-			client.user?.setActivity(DiscordUtils.status_idle());
 		}
 	}
 

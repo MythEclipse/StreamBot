@@ -1,10 +1,10 @@
-import { Router } from 'express';
+import { Router, type Router as ExpressRouter } from 'express';
 import bcrypt from 'bcrypt';
 import argon2 from 'argon2';
 import config from '../../config.js';
 import logger from '../../utils/logger.js';
 
-const router = Router();
+const router: ExpressRouter = Router();
 
 // Login route - GET
 router.get("/login", (req, res) => {
